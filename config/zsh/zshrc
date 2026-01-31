@@ -1,0 +1,19 @@
+alias gst-api-tests="ulimit -n 1024; DATABASE_URL=:memory: cargo nextest run -p gst-api --no-default-features --features \"gst-database/sqlite\" --no-fail-fast"
+alias gst-run-server="cargo run -p gst-server -- --config ../../databases/gst3.cfg"
+alias gst-build-api="cargo build -p gst-api --features \"generate_bindings\""
+alias gst-all-tests="ulimit -n 1024; DATABASE_URL=:memory: cargo nextest run --no-fail-fast"
+
+# setopt PROMPT_SUBST
+
+# PROMPT='$(prmt --code $? "{path:cyan} {git:purple} {rust:red:s: 🦀} {node:green:s: ⬢} {ok:green}{fail:red}  ")'
+
+# zsh history list
+
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+
+source <(fzf --zsh)
+

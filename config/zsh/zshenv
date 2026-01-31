@@ -1,0 +1,5 @@
+. "$HOME/.cargo/env"
+# export CARGO_TARGET_DIR=/Users/bjoern/development/rust_targets/
+
+# ignore some paths for fzf fuzzy file searching via ctrl+t
+export FZF_DEFAULT_OPTS="--walker-skip=target,.git,.idea,node_modules"

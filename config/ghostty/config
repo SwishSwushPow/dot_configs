@@ -1,0 +1,2 @@
+auto-update-channel = stable
+scrollback-limit = 50000000

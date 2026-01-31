@@ -1,0 +1,29 @@
+theme = "onedark"
+
+[editor]
+preview-completion-insert = false
+completion-timeout = 200
+bufferline = "multiple" # maybe don't keep that?
+
+[editor.statusline]
+# added "file-type" here
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator", "file-type"]
+center = ["version-control"]
+# added "total-line-numbers here"
+right = ["diagnostics", "selections", "register", "position","total-line-numbers", "file-encoding"]
+
+[editor.lsp]
+display-progress-messages = true
+display-inlay-hints = true
+
+[editor.auto-save]
+focus-lost = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+# maybe combine with editor.end-of-line-diagnostics
+
+[keys.normal]
+# Print the current line's git blame information to the statusline.
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+space.W = ":toggle soft-wrap.enable"

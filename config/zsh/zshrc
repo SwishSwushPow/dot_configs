@@ -3,6 +3,8 @@ alias gst-run-server="cargo run -p gst-server -- --config ../../databases/gst3.c
 alias gst-build-api="cargo build -p gst-api --features \"generate_bindings\""
 alias gst-all-tests="ulimit -n 1024; DATABASE_URL=:memory: cargo nextest run --no-fail-fast"
 
+alias vibe_rust="vibe --cpus 14 --ram 8192 --send \"mkdir /Users && ln -sfn /root /Users/bjoern\" --send \"rustup component add rust-analyzer\""
+
 # setopt PROMPT_SUBST
 
 # PROMPT='$(prmt --code $? "{path:cyan} {git:purple} {rust:red:s: 🦀} {node:green:s: ⬢} {ok:green}{fail:red}  ")'

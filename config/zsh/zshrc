@@ -1,7 +1,20 @@
-alias gst-api-tests="ulimit -n 1024; DATABASE_URL=:memory: cargo nextest run -p gst-api --no-default-features --features \"gst-database/sqlite\" --no-fail-fast"
-alias gst-run-server="cargo run -p gst-server -- --config ../../databases/gst3.cfg"
-alias gst-build-api="cargo build -p gst-api --features \"generate_bindings\""
-alias gst-all-tests="ulimit -n 1024; DATABASE_URL=:memory: cargo nextest run --no-fail-fast"
+gst-api-tests() {
+  ulimit -n 1024
+  DATABASE_URL=:memory: cargo nextest run -p gst-api --no-default-features --features "gst-database/sqlite" --no-fail-fast "$@"
+}
+
+gst-run-server() {
+  cargo run -p gst-server -- --config ../../databases/gst3.cfg "$@"
+}
+
+gst-build-api() {
+  cargo build -p gst-api --features "generate_bindings" "$@"
+}
+
+gst-all-tests() {
+  ulimit -n 1024
+  DATABASE_URL=:memory: cargo nextest run --no-fail-fast "$@"
+}
 
 alias vibe_rust="vibe --cpus 14 --ram 8192 --send \"mkdir /Users && ln -sfn /root /Users/bjoern\" --send \"rustup component add rust-analyzer\""
 

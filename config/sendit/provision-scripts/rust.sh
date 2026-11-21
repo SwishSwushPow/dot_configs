@@ -5,7 +5,12 @@
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs |
     sh -s -- -y --profile minimal -c clippy -c rustfmt
 
+. "$HOME/.cargo/env"
+
 # Target dir for Rust project
 LINE='export CARGO_TARGET_DIR=/home/dev/rust-build'
 FILE="$HOME/.profile"
 grep -qxF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+
+cargo install cargo-binstall
+cargo binstall cargo-nextest -y

@@ -70,6 +70,9 @@ grep -qxF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 # We need to skip Claude onboarding if we set the token
 json_merge "$HOME/.claude.json" '{"hasCompletedOnboarding": true}'
 
+sudo apt-get -y install --no-install-recommends \
+git-lfs
+
 # proj needs the binary?
 sudo apt-get -y install --no-install-recommends \
 sqlite3
